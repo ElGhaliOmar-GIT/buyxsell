@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {DelivererService} from "../../../services/deliverer.service";
 import {Deliverer} from "../../../models/deliverer";
 
@@ -13,14 +13,20 @@ export class EditDelivererComponent implements OnInit {
 
   delivererForm: FormGroup;
   errorMessage: string;
+  deliverer: Deliverer;
 
   constructor(
     private formBuilder: FormBuilder,
     private delivererService: DelivererService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    const id = + this.route.snapshot.paramMap.get('id');
+    this.delivererService.getDelivererById(id).subscribe((deliverer) => {
+      this.deliverer = deliverer;
+    });
     this.initForm();
   }
 
@@ -49,15 +55,11 @@ export class EditDelivererComponent implements OnInit {
   }
 
   onSubmitForm(): void {
-    const deliverer: Deliverer = this.delivererForm.value;
-    this.delivererService.addDeliverer(deliverer).subscribe(
-      () => {
-        this.router.navigate(['/list-deliverer']);
-      },
-      error => {
-        this.errorMessage = error.error.message;
-      }
-    );
+    this.delivererService.updateDeliverer(this.delivererForm.value).subscribe(() => {
+      this.onCancel();
+    }, (error) => {
+      console.error('Error updating deliverer: ', error);
+    });
   }
 
   onCancel() {

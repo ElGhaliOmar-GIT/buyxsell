@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {AdminService} from "../../../services/admin.service";
 import {Admin} from "../../../models/admin";
 
@@ -13,14 +13,20 @@ export class EditAdminComponent implements OnInit {
 
   AdminForm: FormGroup;
   errorMessage: string;
+  admin:Admin;
 
   constructor(
     private formBuilder: FormBuilder,
     private AdminService: AdminService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    const id = + this.route.snapshot.paramMap.get('id');
+    this.AdminService.getAdminById(id).subscribe((admin) => {
+      this.admin = admin;
+    });
     this.initForm();
   }
 
@@ -49,15 +55,12 @@ export class EditAdminComponent implements OnInit {
   }
 
   onSubmitForm(): void {
-    const Admin: Admin = this.AdminForm.value;
-    this.AdminService.addAdmin(Admin).subscribe(
-      () => {
-        this.router.navigate(['/list-Admin']);
-      },
-      error => {
-        this.errorMessage = error.error.message;
-      }
-    );
+    this.AdminService.updateAdmin(this.admin).subscribe(() => {
+      console.log('Admin updated successfully');
+      this.onCancel();
+    }, (error) => {
+      console.error('Error updating admin: ', error);
+    });
   }
 
   onCancel() {

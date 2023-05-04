@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {SupplierService} from "../../../services/supplier.service";
 import {Supplier} from "../../../models/supplier";
 
@@ -13,14 +13,20 @@ export class EditSupplierComponent implements OnInit {
 
   supplierForm: FormGroup;
   errorMessage: string;
+  supplier: Supplier;
 
   constructor(
     private formBuilder: FormBuilder,
     private supplierService: SupplierService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    const id = + this.route.snapshot.paramMap.get('id');
+    this.supplierService.getSupplierById(id).subscribe((supplier) => {
+      this.supplier = supplier;
+    });
     this.initForm();
   }
 
@@ -49,15 +55,11 @@ export class EditSupplierComponent implements OnInit {
   }
 
   onSubmitForm(): void {
-    const supplier: Supplier = this.supplierForm.value;
-    this.supplierService.addSupplier(supplier).subscribe(
-      () => {
-        this.router.navigate(['/list-supplier']);
-      },
-      error => {
-        this.errorMessage = error.error.message;
-      }
-    );
+    this.supplierService.updateSupplier(this.supplierForm.value).subscribe(() => {
+      this.onCancel();
+    }, (error) => {
+      console.error('Error updating user: ', error);
+    });
   }
 
   onCancel() {

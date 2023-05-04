@@ -13,7 +13,7 @@ export class EditUserComponent implements OnInit {
 
   userForm: FormGroup;
   errorMessage: string;
-  user:User;
+  user: User;
 
   constructor(
     private formBuilder: FormBuilder,

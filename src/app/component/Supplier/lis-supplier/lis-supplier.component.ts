@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Supplier} from "../../../models/supplier";
 import {SupplierService} from "../../../services/supplier.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-lis-supplier',
@@ -11,7 +12,7 @@ export class LisSupplierComponent implements OnInit {
 
   suppliers: Supplier[] = [];
 
-  constructor(private supplierService: SupplierService) { }
+  constructor(private supplierService: SupplierService, private router: Router) { }
 
   ngOnInit(): void {
     this.getSuppliers();
@@ -27,5 +28,9 @@ export class LisSupplierComponent implements OnInit {
     this.supplierService.deleteSupplier(supplierId).subscribe(() => {
       this.getSuppliers();
     });
+  }
+
+  updateSupplier(idSupplier: number) {
+    this.router.navigate(['/edit-supplier', idSupplier]);
   }
 }
