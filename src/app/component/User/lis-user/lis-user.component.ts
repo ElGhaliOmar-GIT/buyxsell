@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-lis-user',
@@ -11,7 +12,7 @@ export class LisUserComponent implements OnInit {
 
   users: User[] = [];
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -27,5 +28,9 @@ export class LisUserComponent implements OnInit {
     this.userService.deleteUser(userId).subscribe(() => {
       this.getUsers();
     });
+  }
+
+  updateUser(idUser: number) {
+    this.router.navigate(['/edit-user', idUser]);
   }
 }

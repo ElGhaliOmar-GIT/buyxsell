@@ -1,1 +1,24 @@
-<p>list-deliverer works!</p>
+<div class="container">
+  <h2>List of Deliverers</h2>
+  <button class="btn btn-primary float-right" routerLink="/add-deliverer">Add Deliverer</button>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let deliverer of deliverers">
+      <td>{{ deliverer.id }}</td>
+      <td>{{ deliverer.firstName }}</td>
+      <td>{{ deliverer.email }}</td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteDeliverer(deliverer.id)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

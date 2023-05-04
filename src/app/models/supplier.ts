@@ -1,9 +1,9 @@
 import { Blog } from "./blog";
 import { Shop } from "./shop";
-import { AccountStatus } from "./user";
+import {AccountStatus, User} from "./user";
 
-export interface Supplier {
-    id: number;
+export class Supplier extends User{
+    /*id: number;
     firstName: string;
     lastName: string;
     photo: string;
@@ -12,7 +12,7 @@ export interface Supplier {
     username: string;
     password: string;
     isActive: boolean;
-    accountStatus: AccountStatus;
+    accountStatus: AccountStatus;*/
     shops: Shop[];
     blogs: Blog[];
     requests: Request[];

@@ -31,7 +31,7 @@ export class AddShopComponent {
 
   // convenience getter for easy access to form fields
   get f() { return this.shopForm.controls; }
-  
+
 
   onSubmit() {
     this.submitted = true;

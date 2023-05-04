@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Produit } from 'src/app/models/produit';
 import { ProduitService } from 'src/app/services/product.service';
 
@@ -9,30 +8,30 @@ import { ProduitService } from 'src/app/services/product.service';
   styleUrls: ['./add-product.component.scss']
 })
 export class AddProductComponent  {
-  product : Produit = new Produit() ; 
-  
+  product : Produit = new Produit() ;
+
   // image!: File ;
 
   constructor(private produitService: ProduitService) { }
 
-  saveProduit(){  
+  saveProduit(){
     this.product;
     console.log(this.product)
     this.produitService.addProduct(this.product).subscribe(
       data => {
-        console.log(data)    
-        
+        console.log(data)
+
       },error => console.log(error)
-      );  
+      );
 
 
 
   // onFileSelected(event: Event) {
   //   const target = event.target as HTMLInputElement;
-   
+
   //   // Do something with the selected files...
   // }
-  
+
 
 }
 }

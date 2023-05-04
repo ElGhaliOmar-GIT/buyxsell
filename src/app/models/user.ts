@@ -14,7 +14,7 @@ export class User {
     accountStatus: AccountStatus;
     promoCode: CodePromo[];
   }
-  
+
   export enum AccountStatus {
     Online = 'Online',
     Away = 'Away',

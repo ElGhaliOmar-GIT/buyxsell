@@ -5,9 +5,9 @@ import { User } from '../models/user';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService{
+export class UserService {
 
-  private readonly baseUrl = 'http://localhost:9000/bns/users';
+  private readonly baseUrl = 'http://localhost:9001/bns/users';
 
   constructor(private http: HttpClient) { }
 

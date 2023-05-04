@@ -1,22 +1,22 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {DelivererService} from "../../../services/deliverer.service";
-import {Deliverer} from "../../../models/deliverer";
+import {AdminService} from "../../../services/admin.service";
+import {Admin} from "../../../models/admin";
 
 @Component({
-  selector: 'app-edit-deliverer',
-  templateUrl: './edit-deliverer.component.html',
-  styleUrls: ['./edit-deliverer.component.scss']
+  selector: 'app-add-admin',
+  templateUrl: './add-admin.component.html',
+  styleUrls: ['./add-admin.component.scss']
 })
-export class EditDelivererComponent implements OnInit {
+export class AddAdminComponent implements OnInit {
 
-  delivererForm: FormGroup;
+  adminForm: FormGroup;
   errorMessage: string;
 
   constructor(
     private formBuilder: FormBuilder,
-    private delivererService: DelivererService,
+    private adminService: AdminService,
     private router: Router
   ) { }
 
@@ -25,7 +25,7 @@ export class EditDelivererComponent implements OnInit {
   }
 
   initForm(): void {
-    this.delivererForm = this.formBuilder.group({
+    this.adminForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       phoneNumber: ['', Validators.required, Validators.pattern("[1-9][0-9]{8}")],
@@ -35,12 +35,12 @@ export class EditDelivererComponent implements OnInit {
     }, { validators: this.matchingPasswordsValidator });
   }
 
-  get firstName() { return this.delivererForm.get('fistName'); }
-  get lastName() { return this.delivererForm.get('lastName'); }
-  get phoneNumber() { return this.delivererForm.get('phoneNumber'); }
-  get email() { return this.delivererForm.get('email'); }
-  get password() { return this.delivererForm.get('password'); }
-  get confirmPassword() { return this.delivererForm.get('confirmPassword'); }
+  get firstName() { return this.adminForm.get('fistName'); }
+  get lastName() { return this.adminForm.get('lastName'); }
+  get phoneNumber() { return this.adminForm.get('phoneNumber'); }
+  get email() { return this.adminForm.get('email'); }
+  get password() { return this.adminForm.get('password'); }
+  get confirmPassword() { return this.adminForm.get('confirmPassword'); }
 
   matchingPasswordsValidator(formGroup: FormGroup): null | { mismatch: boolean } {
     const password = formGroup.get('password');
@@ -49,10 +49,10 @@ export class EditDelivererComponent implements OnInit {
   }
 
   onSubmitForm(): void {
-    const deliverer: Deliverer = this.delivererForm.value;
-    this.delivererService.addDeliverer(deliverer).subscribe(
+    const admin: Admin = this.adminForm.value;
+    this.adminService.addAdmin(admin).subscribe(
       () => {
-        this.router.navigate(['/list-deliverer']);
+        this.router.navigate(['/list-admin']);
       },
       error => {
         this.errorMessage = error.error.message;
@@ -61,7 +61,7 @@ export class EditDelivererComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigate(['/list-deliverer']);
+    this.router.navigate(['/list-admin']);
   }
 
 }

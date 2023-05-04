@@ -78,7 +78,9 @@ import { AddRequestComponent } from './component/Request/add-request/add-request
 import { ListCammanLineComponent } from './component/Cammand_line/list-camman-line/list-camman-line.component';
 import { CommonModule } from '@angular/common';
 import { LisRequestComponent } from './component/Request/lis-request/lis-request.component';
-
+import { ListAdminComponent } from './component/Admin/list-admin/list-admin.component';
+import { AddAdminComponent } from './component/Admin/add-admin/add-admin.component';
+import { EditAdminComponent } from './component/Admin/edit-admin/edit-admin.component';
 
 const appRoute: Routes = [
   { path:'Product' , component : ProductComponent},
@@ -89,12 +91,12 @@ const appRoute: Routes = [
   { path:'category-list' , component : ListCategoryComponent},
   { path:'add-category' , component : AddCategoryComponent},
   { path:'edit-category/:id' , component : EditCategoryComponent},
- 
+
   { path:'list-blog' , component : ListBblogComponent},
   { path:'add-blog' , component : AddBblogComponent},
   { path:'edit-blog/:id' , component : EditBblogComponent},
 
-  
+
   { path:'list-shops' , component : ListShopComponent},
   { path:'add-shops' , component : AddShopComponent},
   { path:'edit-shops/:id' , component : EditShopComponent},
@@ -115,7 +117,7 @@ const appRoute: Routes = [
   { path: 'list-client', component: ListClientComponent },
   { path: 'edit-client/:id', component: EditClientComponent },
 
- 
+
   { path: 'edit-commend-line/:id', component: EditCammandLineComponent },
   { path: 'add-command-line', component: AddCammandLineComponent },
   { path: 'list-command-line', component: ListCammanLineComponent },
@@ -179,6 +181,15 @@ const appRoute: Routes = [
   { path: 'list-user', component: LisUserComponent },
   { path: 'edit-user/:id', component: EditUserComponent },
   { path: 'add-user', component: AddUserComponent },
+
+  { path: 'list-client', component: ListClientComponent },
+  { path: 'edit-client/:id', component: EditClientComponent },
+  { path: 'add-client', component: AddClientComponent },
+
+  { path: 'list-admin', component: ListAdminComponent },
+  { path: 'edit-admin/:id', component: EditAdminComponent },
+  { path: 'add-admin', component: AddAdminComponent },
+
   ]
 @NgModule({
   declarations: [
@@ -252,8 +263,9 @@ const appRoute: Routes = [
     LisUserComponent,
     EditUserComponent,
     AddUserComponent,
-
-    
+    ListAdminComponent,
+    AddAdminComponent,
+    EditAdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -262,7 +274,7 @@ const appRoute: Routes = [
     RouterModule.forRoot(appRoute),
     FormsModule,
     ReactiveFormsModule,
-    CommonModule 
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

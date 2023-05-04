@@ -1,5 +1,6 @@
 <div class="container">
     <h2>List of Users</h2>
+    <button class="btn btn-primary float-right" routerLink="/add-user">Add User</button>
     <table class="table">
       <thead>
         <tr>
@@ -16,9 +17,9 @@
           <td>{{ user.email }}</td>
           <td>
             <button class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button>
+            <button class="btn btn-primary" (click)="updateUser(user.id)">Edit</button>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
-  

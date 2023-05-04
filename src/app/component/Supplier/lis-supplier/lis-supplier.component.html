@@ -1,1 +1,24 @@
-<p>lis-supplier works!</p>
+<div class="container">
+  <h2>List of Suppliers</h2>
+  <button class="btn btn-primary float-right" routerLink="/add-supplier">Add Supplier</button>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let supplier of suppliers">
+      <td>{{ supplier.id }}</td>
+      <td>{{ supplier.firstName }}</td>
+      <td>{{ supplier.email }}</td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteSupplier(supplier.id)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

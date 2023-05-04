@@ -5,8 +5,8 @@ export class Produit {
     name: string;
     reference: string ;
     description: string ;
-    price: string  ; 
+    price: string  ;
     stock : number  ;
-    idCategorie : number ;
+    idCategorie : number;
    image: File ;
 }
