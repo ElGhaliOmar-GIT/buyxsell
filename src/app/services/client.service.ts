@@ -24,7 +24,8 @@ export class ClientService {
     return this.http.post<Client>(`${this.baseUrl}/addClient`, client);
   }
 
-  updateClient(client: Client): Observable<boolean> {
+  updateClient(client: Client, id: number): Observable<boolean> {
+    client.id = id;
     return this.http.put<boolean>(`${this.baseUrl}/updateClient`, client);
   }
 

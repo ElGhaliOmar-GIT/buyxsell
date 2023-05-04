@@ -24,7 +24,8 @@ export class AdminService {
     return this.http.post<Admin>(`${this.baseUrl}/addAdmin`, admin);
   }
 
-  updateAdmin(admin: Admin): Observable<boolean> {
+  updateAdmin(admin: Admin, id: number): Observable<boolean> {
+    admin.id = id;
     return this.http.put<boolean>(`${this.baseUrl}/updateAdmin`, admin);
   }
 

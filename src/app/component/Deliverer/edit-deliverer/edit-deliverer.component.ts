@@ -55,7 +55,7 @@ export class EditDelivererComponent implements OnInit {
   }
 
   onSubmitForm(): void {
-    this.delivererService.updateDeliverer(this.delivererForm.value).subscribe(() => {
+    this.delivererService.updateDeliverer(this.delivererForm.value, this.deliverer.id).subscribe(() => {
       this.onCancel();
     }, (error) => {
       console.error('Error updating deliverer: ', error);

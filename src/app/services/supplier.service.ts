@@ -24,7 +24,8 @@ export class SupplierService {
     return this.http.post<Supplier>(`${this.baseUrl}/addSupplier`, supplier);
   }
 
-  updateSupplier(supplier: Supplier): Observable<boolean> {
+  updateSupplier(supplier: Supplier, id: number): Observable<boolean> {
+    supplier.id = id;
     return this.http.put<boolean>(`${this.baseUrl}/updateSupplier`, supplier);
   }
 

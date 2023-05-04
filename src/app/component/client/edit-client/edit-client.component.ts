@@ -56,8 +56,7 @@ export class EditClientComponent implements OnInit {
   }
 
   onSubmitForm(): void {
-    this.ClientService.updateClient(this.client).subscribe(() => {
-      console.log('Cart updated successfully');
+    this.ClientService.updateClient(this.ClientForm.value, this.client.id).subscribe(() => {
       this.onCancel();
     }, (error) => {
       console.error('Error updating cart: ', error);
@@ -65,6 +64,6 @@ export class EditClientComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigate(['/list-Client']);
+    this.router.navigate(['/list-client']);
   }
 }

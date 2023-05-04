@@ -23,8 +23,9 @@ export class UserService {
     return this.http.post<User>(`${this.baseUrl}/addUser`, user);
   }
 
-  updateUser(user: User): Observable<boolean> {
-    return this.http.put<boolean>(`${this.baseUrl}/updateUser`, user);
+  updateUser(user: User, id: number): Observable<User> {
+    user.id = id;
+    return this.http.put<User>(`${this.baseUrl}/updateUser`, user);
   }
 
   deleteUser(userId: number): Observable<boolean> {

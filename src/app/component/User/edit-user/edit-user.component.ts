@@ -26,7 +26,6 @@ export class EditUserComponent implements OnInit {
     const id = + this.route.snapshot.paramMap.get('id');
     this.userService.getUserById(id).subscribe((user) => {
       this.user = user;
-      console.log("user-edit" ,this.user )
     });
     this.initForm();
   }
@@ -56,9 +55,7 @@ export class EditUserComponent implements OnInit {
   }
 
   onSubmitForm(): void {
-    this.userService.updateUser(this.userForm.value).subscribe(() => {
-      console.log('user updated successfully');
-      console.log(this.userForm.value)
+    this.userService.updateUser(this.userForm.value, this.user.id).subscribe(() => {
       this.onCancel();
     }, (error) => {
       console.error('Error updating user: ', error);

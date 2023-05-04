@@ -55,7 +55,7 @@ export class EditSupplierComponent implements OnInit {
   }
 
   onSubmitForm(): void {
-    this.supplierService.updateSupplier(this.supplierForm.value).subscribe(() => {
+    this.supplierService.updateSupplier(this.supplierForm.value, this.supplier.id).subscribe(() => {
       this.onCancel();
     }, (error) => {
       console.error('Error updating user: ', error);

@@ -24,7 +24,8 @@ export class DelivererService {
     return this.http.post<Deliverer>(`${this.baseUrl}/addDeliverer`, deliverer);
   }
 
-  updateDeliverer(deliverer: Deliverer): Observable<boolean> {
+  updateDeliverer(deliverer: Deliverer, id: number): Observable<boolean> {
+    deliverer.id = id;
     return this.http.put<boolean>(`${this.baseUrl}/updateDeliverer`, deliverer);
   }
 

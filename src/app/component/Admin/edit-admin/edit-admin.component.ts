@@ -55,7 +55,7 @@ export class EditAdminComponent implements OnInit {
   }
 
   onSubmitForm(): void {
-    this.AdminService.updateAdmin(this.admin).subscribe(() => {
+    this.AdminService.updateAdmin(this.AdminForm.value, this.admin.id).subscribe(() => {
       console.log('Admin updated successfully');
       this.onCancel();
     }, (error) => {
@@ -64,7 +64,7 @@ export class EditAdminComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigate(['/list-Admin']);
+    this.router.navigate(['/list-admin']);
   }
 
 }
