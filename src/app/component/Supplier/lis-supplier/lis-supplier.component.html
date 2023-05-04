@@ -1,25 +1,39 @@
-<div class="container">
-  <h2>List of Suppliers</h2>
-  <button class="btn btn-primary float-right" routerLink="/add-supplier">Add Supplier</button>
-  <table class="table">
-    <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let supplier of suppliers">
-      <td>{{ supplier.id }}</td>
-      <td>{{ supplier.firstName }}</td>
-      <td>{{ supplier.email }}</td>
-      <td>
-        <button class="btn btn-danger" (click)="deleteSupplier(supplier.id)">Delete</button>
-        <button class="btn btn-primary" (click)="updateSupplier(supplier.id)">Edit</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-</div>
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h2 >Suppliers List</h2>
+            <button class="btn btn-primary float-right" routerLink="/add-supplier">Add Supplier</button>
+          </div>
+          <div class="card-body">
+            <table class="table table-bordered table-striped">
+              <thead>
+              <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Actions</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let supplier of suppliers">
+                <td>{{ supplier.id }}</td>
+                <td>{{ supplier.firstName }} {{ supplier.lastName }}</td>
+                <td>{{ supplier.email }}</td>
+                <td>{{ supplier.phoneNumber }}</td>
+                <td>
+                  <button class="btn btn-danger" (click)="deleteSupplier(supplier.id)">Delete</button>
+                  <button class="btn btn-primary ml-5" (click)="updateSupplier(supplier.id)">Edit</button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

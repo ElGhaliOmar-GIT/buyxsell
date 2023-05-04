@@ -1,25 +1,39 @@
-<div class="container">
-    <h2>List of Users</h2>
-    <button class="btn btn-primary float-right" routerLink="/add-user">Add User</button>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of users">
-          <td>{{ user.id }}</td>
-          <td>{{ user.firstName }}</td>
-          <td>{{ user.email }}</td>
-          <td>
-            <button class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button>
-            <button class="btn btn-primary" (click)="updateUser(user.id)">Edit</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h2 >Users List</h2>
+            <button class="btn btn-primary float-right" routerLink="/add-user">Add User</button>
+          </div>
+          <div class="card-body">
+            <table class="table table-bordered table-striped">
+              <thead>
+              <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Actions</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let user of users">
+                <td>{{ user.id }}</td>
+                <td>{{ user.firstName }} {{ user.lastName }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.phoneNumber }}</td>
+                <td>
+                  <button class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button>
+                  <button class="btn btn-primary ml-5" (click)="updateUser(user.id)">Edit</button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</section>
