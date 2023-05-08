@@ -35,7 +35,7 @@ export class EditSupplierComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       phoneNumber: ['', Validators.required, Validators.pattern("[1-9][0-9]{8}")],
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required, Validators.minLength(6)]]
     }, { validators: this.matchingPasswordsValidator });
@@ -44,7 +44,7 @@ export class EditSupplierComponent implements OnInit {
   get firstName() { return this.supplierForm.get('fistName'); }
   get lastName() { return this.supplierForm.get('lastName'); }
   get phoneNumber() { return this.supplierForm.get('phoneNumber'); }
-  get email() { return this.supplierForm.get('email'); }
+  get username() { return this.supplierForm.get('username'); }
   get password() { return this.supplierForm.get('password'); }
   get confirmPassword() { return this.supplierForm.get('confirmPassword'); }
 

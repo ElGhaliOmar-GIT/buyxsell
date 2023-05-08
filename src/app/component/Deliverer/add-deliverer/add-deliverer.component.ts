@@ -29,7 +29,7 @@ export class AddDelivererComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       phoneNumber: ['', Validators.required, Validators.pattern("[1-9][0-9]{8}")],
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required, Validators.minLength(6)]]
     }, { validators: this.matchingPasswordsValidator });
@@ -38,7 +38,7 @@ export class AddDelivererComponent implements OnInit {
   get firstName() { return this.delivererForm.get('fistName'); }
   get lastName() { return this.delivererForm.get('lastName'); }
   get phoneNumber() { return this.delivererForm.get('phoneNumber'); }
-  get email() { return this.delivererForm.get('email'); }
+  get username() { return this.delivererForm.get('username'); }
   get password() { return this.delivererForm.get('password'); }
   get confirmPassword() { return this.delivererForm.get('confirmPassword'); }
 

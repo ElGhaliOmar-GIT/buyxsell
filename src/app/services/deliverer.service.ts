@@ -8,7 +8,7 @@ import {Deliverer} from "../models/deliverer";
 })
 export class DelivererService {
 
-  private readonly baseUrl = 'http://localhost:9001/bns/deliverers';
+  private readonly baseUrl = 'http://localhost:9000/bns/deliverers';
 
   constructor(private http: HttpClient) { }
 

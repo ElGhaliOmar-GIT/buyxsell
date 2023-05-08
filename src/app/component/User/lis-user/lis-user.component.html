@@ -22,7 +22,7 @@
               <tr *ngFor="let user of users">
                 <td>{{ user.id }}</td>
                 <td>{{ user.firstName }} {{ user.lastName }}</td>
-                <td>{{ user.email }}</td>
+                <td>{{ user.username }}</td>
                 <td>{{ user.phoneNumber }}</td>
                 <td>
                   <button class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button>

@@ -22,7 +22,7 @@
               <tr *ngFor="let deliverer of deliverers">
                 <td>{{ deliverer.id }}</td>
                 <td>{{ deliverer.firstName }} {{ deliverer.lastName }}</td>
-                <td>{{ deliverer.email }}</td>
+                <td>{{ deliverer.username }}</td>
                 <td>{{ deliverer.phoneNumber }}</td>
                 <td>
                   <button class="btn btn-danger" (click)="deleteDeliverer(deliverer.id)">Delete</button>

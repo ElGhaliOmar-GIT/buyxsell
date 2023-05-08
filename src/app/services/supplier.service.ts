@@ -8,7 +8,7 @@ import {Supplier} from "../models/supplier";
 })
 export class SupplierService {
 
-  private readonly baseUrl = 'http://localhost:9001/bns/suppliers';
+  private readonly baseUrl = 'http://localhost:9000/bns/suppliers';
 
   constructor(private http: HttpClient) { }
 

@@ -8,7 +8,7 @@ import {Admin} from "../models/admin";
 })
 export class AdminService {
 
-  private readonly baseUrl = 'http://localhost:9001/bns/admins';
+  private readonly baseUrl = 'http://localhost:9000/bns/admins';
 
   constructor(private http: HttpClient) { }
 

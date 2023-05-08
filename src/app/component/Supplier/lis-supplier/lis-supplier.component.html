@@ -22,7 +22,7 @@
               <tr *ngFor="let supplier of suppliers">
                 <td>{{ supplier.id }}</td>
                 <td>{{ supplier.firstName }} {{ supplier.lastName }}</td>
-                <td>{{ supplier.email }}</td>
+                <td>{{ supplier.username }}</td>
                 <td>{{ supplier.phoneNumber }}</td>
                 <td>
                   <button class="btn btn-danger" (click)="deleteSupplier(supplier.id)">Delete</button>

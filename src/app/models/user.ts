@@ -7,7 +7,6 @@ export class User {
     lastName: string;
     photo: string;
     phoneNumber: number;
-    email: string;
     username: string;
     password: string;
     isActive: boolean;

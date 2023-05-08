@@ -7,7 +7,7 @@ import { User } from '../models/user';
 })
 export class UserService {
 
-  private readonly baseUrl = 'http://localhost:9001/bns/users';
+  private readonly baseUrl = 'http://localhost:9000/bns/users';
 
   constructor(private http: HttpClient) { }
 
