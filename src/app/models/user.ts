@@ -10,6 +10,7 @@ export class User {
     username: string;
     password: string;
     isActive: boolean;
+    role: string;
     accountStatus: AccountStatus;
     promoCode: CodePromo[];
   }
